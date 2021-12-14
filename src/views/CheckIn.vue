@@ -37,6 +37,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import db from '../db.js'
+
 export default {
     data: function(){
         return {

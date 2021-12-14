@@ -55,7 +55,7 @@
                                     <font-awesome-icon icon="user"></font-awesome-icon>
                                 </router-link>
 
-                                <router-link class="btn btn-sm btn-outline-secondary" title="Attendees" to="/">
+                                <router-link class="btn btn-sm btn-outline-secondary" title="Chat" :to="`/chat/${user.uid}/${item.id}`">
                                     <font-awesome-icon icon="video"></font-awesome-icon>
                                 </router-link>
                             </section>

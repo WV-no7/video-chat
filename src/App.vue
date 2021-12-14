@@ -58,7 +58,7 @@ export default {
             displayName: payload.displayName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           })
-          .then(() => {this.$router.push('/')})
+          .then(() => this.$router.push(`/chat/${payload.hostID}/${payload.roomID}`))
         }
       })
     }
