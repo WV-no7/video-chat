@@ -26,7 +26,7 @@
 import db from '../db.js'
 
 export default {
-  name : 'home',
+  name : 'Home',
   props: ['user']
   
 }
