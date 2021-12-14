@@ -49,13 +49,14 @@ export default {
       .doc(payload.hostID)
       .collection('rooms')
       .doc(payload.roomID)
-
+      
       roomRef.get().then(doc => {
         if(doc.exists){
           roomRef.collection('attendees')
           .doc(this.user.uid)
           .set({
             displayName: payload.displayName,
+            approved: payload.hostID == this.user.uid? true : false,
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           })
           .then(() => this.$router.push(`/chat/${payload.hostID}/${payload.roomID}`))
