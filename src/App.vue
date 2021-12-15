@@ -3,6 +3,7 @@
   <div id="app">
     <Navigation :user='user' @logout="logout"/>
     <router-view :user='user' @logout="logout" :rooms="rooms" @addRoom="addRoom" @deleteRoom="deleteRoom" @checkIn="checkIn"/>
+    <Footer />
   </div>
 </template>
 <script>
@@ -10,6 +11,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 import db from './db.js'
 
 export default {
@@ -49,7 +51,7 @@ export default {
       .doc(payload.hostID)
       .collection('rooms')
       .doc(payload.roomID)
-      
+
       roomRef.get().then(doc => {
         if(doc.exists){
           roomRef.collection('attendees')
@@ -91,7 +93,8 @@ export default {
     })
   },
   components:{
-    Navigation
+    Navigation,
+    Footer
   }
 }
 </script>

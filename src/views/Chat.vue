@@ -24,7 +24,7 @@
                     <span class="mr-2" :class="[attendee.webRTCID ? 'text-success':'text-secondary']" title="On Air">
                         <font-awesome-icon icon="podcast"></font-awesome-icon>
                     </span>
-                    <span class="pl-1" :class="[attendee.id == user.uid ? 'font-weight-bold text-danger':'']">{{attendee.displayName}}</span>
+                    <span class="pl-1" :class="[attendee.id == user.uid ? 'font-weight-bold text-danger':'']">{{attendee.displayName}}<span v-if="attendee.id == hostID"> (Host)</span></span>
                 </li>
             </ul>
             <div v-if="user && user.uid == hostID">
