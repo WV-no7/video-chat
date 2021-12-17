@@ -2,6 +2,16 @@
 node_modules
 src/db.js
 dist
+
+# firebase hosting files
+.firebase
+.firebaserc
+firebase.json
+firestore-debug.log
+firestore.indexes.json
+firestore.rules
+ui-debug.log
+
 # local env files
 .env.local
 .env.*.local
