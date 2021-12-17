@@ -186,7 +186,7 @@ export default {
                 this.attendeesPending = tempPending
                 this.attendeesApproved = tempApproved
                 if(!amCheckIn){
-                    this.$route.push(`/checkin/${this.hostID}/${this.roomID}`)
+                    this.$route.replace(`/checkin/${this.hostID}/${this.roomID}`)
                 }
             })
     }
