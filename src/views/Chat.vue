@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 <template>
     <div class="container-fluid mt-4">
         <div class="mb-3">
@@ -6,7 +7,7 @@
         </div>
         <div class="row" v-if="(user !== null && user.uid == hostID) || attendeeApproved">
             <div class="col-md-8">
-                <vue-webrtc ref="webrtc" width="100%" :roomId="roomID" v-on:joined-room="doAttendeeJoined" v-on:left-room="doAttendeeLeft" />
+                <vue-webrtc ref="webrtc" width="100%" :roomId="roomID" v-on:joined-room="doAttendeeJoined" v-on:left-room="doAttendeeLeft" peerOptions="TURN"/>
             </div>
             <div class="col-md-4">
             <button class="btn btn-primary mr-1" v-if="!attendeeJoined && attendeeApproved" @click="doJoin">
