@@ -7,7 +7,7 @@
         </div>
         <div class="row" v-if="(user !== null && user.uid == hostID) || attendeeApproved">
             <div class="col-md-8">
-                <vue-webrtc ref="webrtc" width="100%" :roomId="roomID" v-on:joined-room="doAttendeeJoined" v-on:left-room="doAttendeeLeft" peerOptions="TURN"/>
+                <vue-webrtc ref="webrtc" width="100%" :roomId="roomID" v-on:joined-room="doAttendeeJoined" v-on:left-room="doAttendeeLeft" :peerOptions="peerOptions"/>
             </div>
             <div class="col-md-4">
             <button class="btn btn-primary mr-1" v-if="!attendeeJoined && attendeeApproved" @click="doJoin">
@@ -72,7 +72,8 @@ export default {
             attendeesPending: [],
             attendeesApproved: [],
             attendeeApproved: false,
-            attendeeJoined: false
+            attendeeJoined: false,
+            peerOptions:{'SimplePeer': 'TURN'}
         }
     },
     methods: {
