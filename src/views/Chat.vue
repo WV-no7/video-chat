@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 <template>
+<div class="container" v-if="user">
     <div class="container-fluid mt-4">
         <div class="mb-3">
             <span class="mb-0 h2 text-primary">{{ roomName }}</span>
@@ -53,12 +54,25 @@
             </p>
         </div>
     </div>
+</div>
+<div class="card bg-light" v-else>
+    <div class="card-body card-outline-danger text-center" >
+        <h1 class="text-danger card-title ">Sorry</h1>
+        <p class="card-text lead">
+        Sorry, access to rooms is only available to registered users. Please
+        <router-link to="/login">login</router-link> or
+        <router-link to="/register">register</router-link> and try again.
+        </p>
+    </div>
+</div>
 </template>
 
 <script>
 import db from '../db'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 
 export default {
@@ -138,6 +152,14 @@ export default {
     },
     props: ['user'],
     mounted(){
+        firebase.auth().onAuthStateChanged( user => {
+            if(user){
+                this.displayName = user.displayName
+            }else{
+                this.$router.replace('/')
+            }
+        })
+        console.log('mounter chat')
         const roomRef = db.collection('users')
             .doc(this.hostID)
             .collection('rooms')

@@ -73,6 +73,9 @@
 
 <script>
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 export default {
     name: 'Rooms',
@@ -91,6 +94,15 @@ export default {
             this.$refs.roomName.focus()
         }
     },
-    props: ['rooms', 'user']
+    props: ['rooms', 'user'],
+    mounted() {
+        firebase.auth().onAuthStateChanged( user => {
+            if(user){
+                this.displayName = user.displayName
+            }else{
+                this.$router.replace('/')
+            }
+        })
+    }
 }
 </script>

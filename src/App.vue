@@ -27,7 +27,7 @@ export default {
       firebase.auth().signOut()
       .then( () => {
         this.user = null,
-        this.$router.push('login')
+        this.$router.push('/login')
       })
     },
     addRoom: function (payload){

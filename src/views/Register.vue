@@ -6,13 +6,13 @@
           <div class="col-lg-8">
             <div class="card bg-light">
               <div class="card-body">
-                <h3 class="font-weight-light mb-3">Register</h3>
+                <h4 class="font-weight-light mb-3">Register</h4>
                 <div class="form-row">
                   <div v-if="error" class="col-12 alert alert-danger px-3">
                     {{ error }}
                   </div>
-                  <section class="col-sm-12 form-group">
-                    <label class="form-control-label sr-only" for="displayName">Display Name</label>
+                  <section class="col-sm-12 form-group p-1">
+                    <label class="form-control-label sr-only p-1" for="displayName">Display Name</label>
                     <input
                       class="form-control"
                       type="text"
@@ -24,8 +24,8 @@
                     />
                   </section>
                 </div>
-                <section class="form-group">
-                  <label class="form-control-label sr-only" for="email">Email</label>
+                <section class="form-group p-1">
+                  <label class="form-control-label sr-only p-1" for="email">Email</label>
                   <input
                     class="form-control"
                     type="email"
@@ -37,7 +37,7 @@
                   />
                 </section>
                 <div class="form-row">
-                  <section class="col-sm-6 form-group">
+                  <section class="col-sm-6 form-group p-1">
                     <input
                       class="form-control"
                       type="password"
@@ -45,7 +45,7 @@
                       v-model="passOne"
                     />
                   </section>
-                  <section class="col-sm-6 form-group">
+                  <section class="col-sm-6 form-group p-1">
                     <input
                       class="form-control"
                       type="password"
@@ -55,10 +55,13 @@
                     />
                   </section>
                 </div>
-                <div class="form-group text-right mb-0">
-                  <button class="btn btn-primary" type="submit">
+                <div class="form-group text-right mb-0 p-1">
+                  <span class="d-flex justify-content-center"><button class="btn btn-primary" type="submit">
                     Register
-                  </button>
+                  </button></span>
+                  <span class="d-flex justify-content-center text-center">
+                    <router-link to="/login">Existing user? Login here</router-link>
+                  </span>
                 </div>
               </div>
             </div>
@@ -68,7 +71,7 @@
     </form>
     <p class="text-center mt-2">
       or
-      <router-link to="/login">login</router-link>
+      <router-link to="/login">Existing user? Login here</router-link>
     </p>
   </div>
 </template>

@@ -59,6 +59,8 @@ export default {
         firebase.auth().onAuthStateChanged( user => {
             if(user){
                 this.displayName = user.displayName
+            }else{
+                this.$router.replace('/')
             }
         })
         db.collection('users')
