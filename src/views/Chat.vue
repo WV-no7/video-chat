@@ -205,7 +205,7 @@ export default {
     background: transparent !important;
 }
 .video-item video {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 250px;
 }
 </style>

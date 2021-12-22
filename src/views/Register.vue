@@ -119,6 +119,14 @@ export default {
         this.error = null
       }
     }
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged( user => {
+        if(user){
+            this.displayName = user.displayName
+            this.$router.replace('/')
+        }
+    })
   }
 }
 </script>

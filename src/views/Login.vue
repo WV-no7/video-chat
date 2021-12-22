@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import Firebase from 'firebase/compat/app';
+import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
@@ -66,7 +66,7 @@ export default {
         email: this.email,
         password: this.password
       }
-      Firebase.auth()
+      firebase.auth()
       .signInWithEmailAndPassword(info.email, info.password)
       .then(()=>{
         this.$router.push('/rooms')
@@ -75,6 +75,14 @@ export default {
         this.error = error.message
       })
     }
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged( user => {
+        if(user){
+            this.displayName = user.displayName
+            this.$router.replace('/')
+        }
+    })
   }
 }
 </script>
